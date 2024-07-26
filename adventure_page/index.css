@@ -1,0 +1,408 @@
+* {
+  padding: 0;
+  margin: 0px auto;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+:root {
+  font-size: 62.5%;
+  background-color: rgb(241, 194, 134);
+  --support_color: rgb(211, 0, 141);
+  --navlinks_toggler_color:antiquewhite;
+  --navbar_color:aliceblue;
+}
+
+/* ! Start of navbar */
+
+.navbar {
+  margin: 0;
+  width: 100%;
+  height: 7.5vh;
+  background-color: var(--navbar_color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 1.5rem;
+
+  & .navicon {
+    font-size: 2.5rem;
+    display: none;
+    color: var(--support-color);
+  }
+
+  & * {
+    margin: 0px;
+  }
+
+  & .logo {
+    height: 100%;
+    & img {
+      min-width: 4%;
+      height: 100%;
+    }
+  }
+  & .navlinks {
+    display: grid;
+    place-items: center;
+    & ul {
+      list-style: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 2rem;
+      color: var(--support-color);
+
+      & li {
+        & a {
+          text-decoration: none;
+        }
+
+        & a:hover {
+          text-decoration: none;
+          color: blueviolet;
+        }
+        & a:active {
+          color: red;
+        }
+      }
+    }
+  }
+}
+/* ! transition causes the change in width caused by JS functions on the inline-html work as it is also simply changing the width causing a transition hence it works without using any hover active etc */
+.navlinks_toggler {
+  height: 0rem;
+  overflow: hidden;
+  transition: 0.3s;
+  & ul {
+    list-style: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 2rem;
+    background-color: var(--navlinks_toggler_color);
+    color: var(--support_color);
+    padding: 0px 2.5rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0.5rem 1rem var(--support_color);
+
+    & li {
+      padding-top: 2rem;
+      padding-bottom: 1.8rem;
+
+      & a{
+        text-decoration: none;
+        color:var(--support_color)
+      }
+
+      & a:hover{
+        text-decoration: none;
+        color:blueviolet
+      }
+      & a:active{
+        color:red;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .navbar {
+    & .navicon {
+      display: block;
+    }
+    & .navlinks {
+      display: none;
+    }
+  }
+}
+
+/* ! End of navbar */
+
+/* ! Start of Content Section */
+
+.content {
+  background: linear-gradient(to right, #fc5c7d, #6a82fb);
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 55%;
+  margin-left: 2rem;
+  display: inline-block;
+  margin-bottom: 6rem;
+
+  & .caraousal {
+    max-width: 60rem;
+    min-width: 25rem;
+    width: 100%;
+    height: 40rem;
+    border: 0.5rem solid gold;
+    box-sizing: content-box;
+    position: relative;
+    overflow: hidden;
+    margin: 5rem auto;
+    border-radius: 2rem;
+
+    & .img_container {
+      height: inherit;
+      width: inherit;
+      display: flex;
+      transition: all 0.5s;
+
+      & img {
+        height: inherit;
+        width: inherit;
+        flex: 1 0 auto;
+      }
+    }
+
+    & .navigate {
+      font-size: 3.5rem;
+      bottom: 45%;
+      z-index: 1;
+      cursor: pointer;
+
+      & .prev {
+        position: absolute;
+        left: 5%;
+        color: rgba(171, 255, 46, 1);
+        opacity: 0.5;
+      }
+
+      & .next {
+        position: absolute;
+        right: 5%;
+        color: rgba(171, 255, 46, 1);
+      }
+    }
+  }
+
+  & .info {
+    width: 90%;
+    margin-bottom: 6rem;
+
+    & .name {
+      margin-top: 4rem;
+      font-size: 4.5rem;
+      color: black;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+    }
+
+    & .subtittle {
+      font-size: 3.2rem;
+      color: aqua;
+      font-weight: 400;
+      margin-top: 1rem;
+    }
+
+    & .description {
+      margin-top: 0.8rem;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+}
+
+/* ! End of Content Section */
+
+/* ! Start of Booking section */
+
+.booking {
+  display: inline-block;
+  width: 35%;
+  height: fit-content;
+  background-color: cyan;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  top: 9rem;
+  right: 4%;
+  border-radius: 2rem;
+  box-shadow: 0px 60px 80px 0px rgba(0, 0, 0, 0.6),
+    0px 45px 26px 0px rgba(0, 0, 0, 0.14);
+
+  & .heading {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  & .input_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+
+    & * {
+      margin: 0;
+    }
+
+    & label {
+      font-size: 2.3rem;
+      text-align: left;
+    }
+
+    & input {
+      max-width: 55%;
+      min-width: 30%;
+      width: 100%;
+      height: 68%;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      outline: none;
+      font-size: 1.5rem;
+      border-radius: 0.5rem;
+
+      &:focus {
+        border: 0.25rem solid orange;
+      }
+    }
+  }
+
+  & .cost_per_head,
+  .total_cost {
+    font-size: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & * {
+      margin: 0;
+      text-align: left;
+    }
+
+    & .cost {
+      font-size: 2rem;
+      text-align: right;
+    }
+  }
+
+  & .total_cost,
+  button {
+    margin-top: 1.4rem;
+  }
+
+  & button {
+    background-color: aliceblue;
+    width: 20%;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    border: 0.26rem solid darkcyan;
+    font-weight: 600;
+
+    &:hover {
+      background-color: rgb(179, 197, 214);
+    }
+
+    &:active {
+      background-color: rgb(151, 160, 168);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .content {
+    display: block;
+    width: 90%;
+  }
+
+  .booking {
+    display: block;
+    position: static;
+    width: 70%;
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+
+    & .input_container input {
+      max-width: 40%;
+      min-width: 25%;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+/* ! End of Booking section */
+
+/* ! Start of Not Available Section */
+
+.not_available {
+  display: inline-block;
+  width: 35%;
+  background-color: cyan;
+  padding: 4rem 2rem;
+  position: fixed;
+  top: 9rem;
+  right: 4%;
+  border-radius: 2rem;
+  margin-bottom: 8rem;
+  box-shadow: 0px 60px 80px 0px rgba(0, 0, 0, 0.6),
+    0px 45px 26px 0px rgba(0, 0, 0, 0.14);
+
+  & * {
+    text-align: center;
+  }
+
+  & div:nth-child(1) {
+    font-size: 4rem;
+    color: red;
+  }
+
+  & div:nth-child(2) {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .not_available {
+    display: block;
+    position: static;
+    width: 60%;
+    margin-top: 5rem;
+  }
+}
+
+/* ! End of Not Available section */
+
+/* ! Start of wrapper section */
+
+.wrapper {
+  margin: 0rem auto;
+  margin-top: 4rem;
+  width: 95%;
+}
+
+/* ! End of wrapper section */
+
+/* ! Start of Footer Section */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 7rem;
+  background-color: #dc8fba;
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  padding: 0 2rem;
+
+  & .left,
+  .right {
+    margin: 0rem;
+    text-transform: capitalize;
+  }
+
+  & .right {
+    text-align: right;
+  }
+}
+
+/* ! End of Footer Section */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ysabeau+Infant:ital,wght@1,200&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+     <!--!  Start of Navbar -->
+
+     <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../resources/Logo.png" alt="">
+            </div>
+            <div class="navlinks">
+                <ul>
+                    <li><a href="../reservation_page/index.html">reservations</a></li>
+                    <li><a href="../landing_page/index.html">homepage</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars navicon" onclick="openToggle()"></i>
+        </div>
+        <div class="navlinks_toggler">
+            <ul>
+                <li><a href="../reservation_page/index.html">reservations</a></li>
+                <hr>
+                <li><a href="../landing_page/index.html">homepage</a></li>
+                <hr>
+                <li onclick="closeToggle()"><i class="fa-solid fa-xmark"></i></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--!  End of Navbar -->
+
+
+
+    <!--! Start of Headings & Filters -->
+
+    <div class="heading">Explore all Adventures!</div>
+    <div class="para">Here's a list of places that you can explore in city</div>
+
+
+    <div class="category_and_duration_selection">
+
+        <div class="category_section">
+            <label for="label_select" class="label">select among following categories</label>
+            <select class="select" id="label_select" onchange="addCategory(event)">
+                <option value="" selected id="default_category">Select Categories</option>
+                <option value="Cycling">Cycling Routes</option>
+                <option value="Hillside">Hillside Getaways</option>
+                <option value="Beaches">Serene Beaches</option>
+                <option value="Party">Party Sports</option>
+            </select>
+            <div class="categories"></div>
+        </div>
+
+        <div class="duration_section">
+            <label for="duration_select" class="label">select duration</label>
+            <select class="select" id="duration_select" onchange="addDuration(event)">
+                <option value="all" selected>All</option>
+                <option value="0-2">0-2 Hours</option>
+                <option value="2-6">2-6 Hours</option>
+                <option value="6-12">6-12 Hours</option>
+                <option value="12-99">12+ Hours</option>
+            </select>
+        </div>
+
+    </div>
+
+    <!--! End of Headings & Filters -->
+
+    
+    <!--! Start of Adventure Cards-->
+    <div class="adventures">
+        
+    </div>
+
+    <!--! End of Adventure Cards-->
+
+
+    <!--! Start of No Content section -->
+
+    <div class="no_content"></div>
+    
+    <!--! End of No Content section -->
+
+    <!-- ! Start of Footer Section -->
+
+    <footer>
+        <div class="footer">
+            <div class="left">@QTrip 2024</div>
+            <div class="right">all rights reserved</div>
+        </div>
+    </footer>
+
+    <!-- ! End of Footer Section -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./city_page.js"></script>
+</body>
+</html>

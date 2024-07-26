@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ysabeau+Infant:ital,wght@1,200&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!--!  Start of Navbar -->
+
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img src="../resources/Logo.png" alt="" />
+        </div>
+        <div class="navlinks">
+          <ul>
+            <li><a href="../reservation_page/index.html">reservations</a></li>
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars navicon" onclick="openToggle()"></i>
+      </div>
+      <div class="navlinks_toggler">
+        <ul>
+          <li><a href="../reservation_page/index.html">reservations</a></li>
+          <hr />
+          <li onclick="closeToggle()"><i class="fa-solid fa-xmark"></i></li>
+        </ul>
+      </div>
+    </header>
+
+    <!--!  End of Navbar -->
+
+    <!--!  Start of Herosection -->
+
+    <div class="herocontainer">
+      <div class="container">
+        <div class="container_text">Explore the world with Us!</div>
+        <div class="container_img">
+          <img src="../resources/heroicon.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="toggle_container">
+      <div class="toggle_container_text">Explore the world with Us!</div>
+      <div class="toggle_container_img">
+        <img src="../resources/heroicon.png" alt="" />
+      </div>
+    </div>
+
+    <!--!  End of Herosection -->
+
+    <!--! Start of City Cards -->
+
+    <div class="grid"></div>
+
+    <!--! End of City Cards -->
+
+    <!-- ! Start of Footer Section -->
+
+    <footer>
+      <div class="footer">
+        <div class="left">@QTrip 2024</div>
+        <div class="right">all rights reserved</div>
+      </div>
+    </footer>
+
+    <!-- ! End of Footer Section -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

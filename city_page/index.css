@@ -1,0 +1,401 @@
+* {
+  padding: 0;
+  margin: 0px auto;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+:root {
+  font-size: 62.5%;
+  background-color: rgb(241, 194, 134);
+  --support-color: rgb(211, 0, 141);
+  --grid_item_width: 28rem;
+  --grid_item_height: 42rem;
+  --gridcontainer_min_width: 20rem;
+  --gridcontainer_max_width: 121rem;
+  --navlinks_toggler_color:antiquewhite;
+  --navbar_color:aliceblue;
+}
+
+/* ! Start of navbar */
+
+.navbar {
+  margin: 0;
+  width: 100%;
+  height: 7.5vh;
+  background-color: var(--navbar_color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 1.5rem;
+
+  & .navicon {
+    font-size: 2.5rem;
+    display: none;
+    color: var(--support-color);
+  }
+
+  & * {
+    margin: 0px;
+  }
+
+  & .logo {
+    height: 100%;
+    & img {
+      min-width: 4%;
+      height: 100%;
+    }
+  }
+  & .navlinks {
+    display: grid;
+    place-items: center;
+    & ul {
+      list-style: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 2rem;
+      color: var(--support-color);
+
+      & li{
+
+        & a{
+          text-decoration: none;
+        }
+
+        & a:hover{
+          text-decoration: none;
+          color:blueviolet
+        }
+        & a:active{
+          color:red;
+        }
+      }
+    }
+  }
+}
+/* ! transition causes the change in width caused by JS functions on the inline-html work as it is also simply changing the width causing a transition hence it works without using any hover active etc */
+.navlinks_toggler {
+  height: 0rem;
+  overflow: hidden;
+  transition: 0.3s;
+  & ul {
+    list-style: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 2rem;
+    background-color: var(--navlinks_toggler_color);
+    color: var(--support-color);
+    padding: 0px 2.5rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0.5rem 1rem var(--support-color);
+
+    & li {
+      padding-top: 2rem;
+      padding-bottom: 1.8rem;
+      
+      & a{
+        text-decoration: none;
+        color:var(--support-color)
+      }
+
+      & a:hover{
+        text-decoration: none;
+        color:blueviolet
+      }
+      & a:active{
+        color:red;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .navbar {
+    & .navicon {
+      display: block;
+    }
+    & .navlinks {
+      display: none;
+    }
+  }
+}
+
+/* ! End of navbar */
+
+/* ! Start of Headings & Filters */
+
+.heading {
+  font-size: 5rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5rem;
+  width: 85%;
+  margin-top: 2rem;
+}
+.para {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.1rem;
+  width: 85%;
+  margin-top: 3rem;
+}
+.category_and_duration_selection {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+
+  & :is(.category_section, .duration_section) {
+    & .select {
+      width: 15rem;
+      height: 3rem;
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      outline: none;
+      background-color: bisque;
+      cursor:pointer;
+    }
+
+    & .label {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 550;
+      text-transform: capitalize;
+      display: block;
+    }
+  }
+}
+.category_section {
+  margin: 0;
+
+  & .categories {
+    width: 100%;
+    max-width: 70rem;
+    min-width: 10rem;
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    & .category {
+      margin: 0;
+      width: 10rem;
+      height: 4.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+      border-radius: 1rem;
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      & .category_name,
+      .cancel_category {
+        position: absolute;
+        width: 100%;
+        display: grid;
+        place-content: center;
+      }
+
+      & .category_name {
+        height: 100%;
+        background-color: azure;
+      }
+
+      & .cancel_category {
+        height: 0%;
+        background-color: red;
+        overflow: hidden;
+        bottom: 0;
+        transition: all 0.3s;
+        color:white;
+      }
+
+      &:hover .cancel_category {
+        height: 100%;
+      }
+    }
+  }
+
+  & .clear_categories {
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+    font-weight: 800;
+    font-size: 2rem;
+    color: red;
+    background-color: white;
+    text-align: center;
+    padding: 1rem;
+    display: inline-block;
+    border-radius: 0.7rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: aliceblue;
+      cursor: pointer;
+    }
+
+    &:active {
+      color: white;
+      background-color: red;
+      cursor: pointer;
+    }
+  }
+}
+.duration_section {
+  margin: 0;
+  margin-right:6rem;
+}
+
+/* ! End of Headings & Filters */
+
+/*! Start of Adventure Cards */
+
+.adventures {
+  width: 92%;
+  height: auto;
+  display: grid;
+  gap: 3rem;
+  margin-top:5rem;
+  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, var(--grid_item_width)); /* ? card width */
+  grid-auto-rows: var(--grid_item_height); /* ? card height */
+
+  & .adventure_card {
+    height: var(--grid_item_height); /* ? card height */
+    width: var(--grid_item_width); /* ? card width */
+    background-color: aliceblue;
+    padding: 1rem 0.9rem 0.8rem 0.9rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:hover{
+      background-color: aquamarine;
+      cursor:pointer;
+    }
+
+    &:active{
+      background-color: aqua;
+      cursor:pointer;
+    }
+    
+    /* ? you can also use flex: 1 1 auto to mahe img responsive; which says from left to right flex-grow=1 i.e. img can grow as per requiurement of its content; flex-shrink:1 img can shrink if the content below it is larger in size to accomadate it inside .content; flex-basis:auto i.e. initially the leght and height are dependent on the basis of the image actual size and height where i declared later that height will be 80% hence the initial height of the img because of auto will be 80% and width is also declared 100% later on so it will be 100% because of auto*/
+    & .img {
+      min-height: 50%;
+      max-height: 70%;
+      height:100%;
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    & .content {
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+      margin: 0rem;
+
+      & :is( .Duration, .Cost) {
+        display: flex;
+        justify-content: space-between;
+
+        & :is(.name_title, .duration_title, .cost_title) {
+          font-size: 2rem;
+          font-weight: 600;
+          color: red;
+          margin: 0rem;
+        }
+
+        & :is( .duration_value, .cost_value) {
+          font-size: 2rem;
+          font-weight: 600;
+          color: green;
+          margin: 0rem;
+          white-space: normal;
+          word-break: break-all;
+        }
+      }
+
+      & .Duration {
+        padding-bottom: 1rem;
+      }
+
+      & .Name{
+        text-align: center;
+        font-size: 2rem;
+          font-weight: 600;
+          color: green;
+          margin: 0rem;
+          white-space: normal;
+          word-break: break-all;
+      }
+    }
+
+    & .card_tile {
+      font-size: 2rem;
+      color: white;
+      background-color: orange;
+      width: 40%;
+      height: fit-content;
+      position: absolute;
+      top: -2%;
+      right: -2%;
+      text-align: center;
+      padding: 1rem 0rem;
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+      border-radius: 2rem 0rem 0rem 2rem;
+      box-shadow: 0.5rem 1rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+/*! End of Adventure Cards */
+
+
+/* ! Start of No Content Section */
+
+.content_absent{
+  display: grid;
+  place-items: center;
+  width:80vw;
+  height:40rem;
+  background-color: antiquewhite;
+  color:black;
+  border-radius: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  font-size: 3rem;
+  font-weight: 800;
+  padding:0 2rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+}
+
+/* ! End of No Content Section */
+
+
+/* ! Start of Footer Section */
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+  height: 7rem;
+  background-color: #dc8fba;
+  color:white;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top:2rem;
+  padding: 0 2rem;
+
+  & .left,.right{
+      margin:0rem;
+      text-transform: capitalize;
+  }
+}
+
+/* ! End of Footer Section */
+

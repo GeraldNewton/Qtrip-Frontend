@@ -1,0 +1,352 @@
+*{
+    padding: 0;
+    margin: 0px auto;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+:root{
+    font-size: 62.5%;
+    background-color: rgb(241, 194, 134);
+    --support-color:rgb(211, 0, 141);
+    --grid_item_width: 28rem;
+    --grid_item_height: 40rem;
+    --gridcontainer_min_width: 20rem;
+    --gridcontainer_max_width: 121rem;
+    --navlinks_toggler_color:antiquewhite;
+    --navbar_color:aliceblue;
+}
+
+/* ! Start of navbar */
+
+.navbar{
+    margin:0;
+    width:100%;
+    height:7.5vh;
+    background-color: var(--navbar_color);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 1.5rem;
+
+    & .navicon{
+        font-size: 2.5rem;
+        display: none;
+        color: var(--support-color);
+    }
+
+    & *{
+        margin: 0px;
+    }
+
+    & .logo{
+        height:100%;
+        & img{
+            min-width:4%;
+            height:100%;
+        }
+    }
+    & .navlinks{
+        display: grid;
+        place-items: center;
+        height:100%;
+        & ul{
+            list-style: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            gap:1.5rem;
+            font-size: 2rem;
+            color: var(--support-color);
+            height:100%;
+                 
+                & li a{
+                    text-decoration: none;
+                    color:var(--support-color);
+                    cursor:pointer;
+                    height:100%;
+    
+                    &:hover{
+                        color:rgb(128, 54, 96);
+                    }
+
+                    &:active{
+                        color:red
+                    }
+                }
+            
+        }
+    }
+}
+/* ! transition causes the change in width caused by JS functions on the inline-html work as it is also simply changing the width causing a transition hence it works without using any hover active etc */
+.navlinks_toggler{
+    height:0rem;
+    overflow: hidden;
+    transition:0.3s;
+    & ul{
+        list-style: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 2rem;
+        background-color:var(--navlinks_toggler_color);
+        color: var(--support-color);
+        padding: 0px 2.5rem;
+        border-radius:0 0 1rem 1rem;
+        box-shadow: 0 0.5rem 1rem  var(--support-color);
+
+        & li{
+            padding-top: 2rem;
+            padding-bottom: 1.8rem;
+             
+            & a{
+                text-decoration: none;
+                color:var(--support-color);
+                
+                &:hover{
+                    color:rgb(124, 75, 108);
+                }
+                
+                &:active{
+                    color:black;
+                }
+            }
+        }
+    }
+}
+@media (max-width:500px) {
+    .navbar{
+        & .navicon{
+            display:block;
+    
+        }
+        & .navlinks{
+            display:none;
+        }
+    }
+}
+
+/* ! End of navbar */
+
+
+/* ! Start of Herosection */
+
+.herocontainer{
+    width:100%;
+    height:80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url("../resources/Heroimg.jpg");
+    position:relative;
+}
+.container{
+    box-shadow: 0px -25px 20px -20px rgba(248,231,28,1),
+    25px 0px 68px -20px rgba(248,231,28,1),
+    0px 25px 51px -9px rgba(248,231,28,1),
+    -25px 0px 46px -9px rgba(248,231,28,1);
+    width:30%;
+    height:80%;
+    padding:1rem;
+    border-radius: 2rem;
+    position:absolute;
+    right:10rem;
+    top:5rem;
+    background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
+
+    & .container_text{
+        color:white;
+        font-size: 3.9rem;
+        font-weight: 500;
+    }
+
+    & .container_img {
+        width:100%;
+        height:75%;
+        margin-top: 2rem;
+
+        & img{
+            width:100%;
+            height:100%;
+        }
+
+    }
+}
+.toggle_container{
+    display:none;
+    box-shadow: 0px 45px 65px 0px rgba(80,227,194,1),
+    0px 35px 22px 0px rgba(0,0,0,0.16);
+    max-width: 40rem;
+    height:fit-content;
+    margin:0rem auto;
+    background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
+    border-radius: 2rem;
+    margin-top:3rem;
+    padding:1rem;
+    & .toggle_container_text{
+        color:white;
+        font-size: 6rem;
+        font-weight: 700;
+    }
+
+    & .toggle_container_img {
+        width:100%;
+        height:75%;
+
+        & img{
+            width:100%;
+            height:100%;
+        }
+
+    }
+
+}
+@media (max-width:930px){
+    .container{
+        display:none;
+    }
+    .toggle_container{
+        display:block;
+    }
+}
+@media(max-width:435px){
+    .toggle_container{
+        margin:2rem
+    }
+}
+
+/* ! End of Herosection */
+
+
+/* ! Start of City Cards */
+
+
+.grid{
+    /* margin: auto; */
+    margin-top: 9rem;
+    margin-bottom: 6rem;;
+    width:92%;
+    min-width: var(--gridcontainer_min_width);
+    max-width: var(--gridcontainer_max_width);
+    display:grid;
+    grid-template-columns: repeat(auto-fit,var(--grid_item_width));
+    gap:3rem;
+}
+
+/* ? To understand clearly how grid_item show 3d effect on rotation */
+/* ? explanation starts */
+.grid_item{
+    width:var(--grid_item_width);
+    height: var(--grid_item_height);
+    margin:0;
+    padding: 0;
+}
+.city_card{
+    width:100%;
+    height:100%;
+    cursor:pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 2s;
+}
+.grid_item:hover .city_card{
+    transform: rotateY(180deg);
+}
+.front_card,.back_card{
+    transform-style: preserve-3d;
+    width:100%;
+    height:100%;
+    color:white;
+    font-size: 2rem;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front_card{
+    border-radius: 2rem;
+    object-fit: contain;
+}
+.back_card{
+    background-color:#ff7882;
+    transform: rotateY(180deg) translateZ(50px);
+    border-radius: 2rem;
+    
+    & div a{
+        text-decoration: none;
+        color:blue;
+        font-weight: 600;
+        font-size: 3rem;
+
+        &:hover{
+            color:grey;
+        }
+
+        &:active{
+            color:black;
+        }
+    }
+}
+.front_card .border{
+    width:95%;
+    height:95%;
+    position:absolute;
+    border: 0.5rem solid white;
+    border-radius: 2rem;
+    transform: translateZ(15px);
+}
+.back_card div{
+    transform: translateZ(20px);
+}
+
+.img{
+
+    width:100%;
+    height:var(--grid_item_height);
+    border-radius: 2rem;
+}
+.city_name{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform:translateX(-50%) translateZ(50px);
+    color:white;
+    font-size: 4rem;
+    white-space: nowrap;  /* TODO: try to understand */   
+}
+.city_places{
+    position: absolute;
+    top:55%;
+    left:50%;
+    transform:translateX(-50%) translateZ(50px);
+    color:white;
+    font-size: 1.8rem;
+}
+/* ? explanation ends */
+ 
+
+/* ! End of City Cards */
+
+
+/* ! Start of Footer Section */
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height: 7rem;
+    background-color: #dc8fba;
+    color:white;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top:2rem;
+    padding: 0 2rem;
+
+    & .left,.right{
+        margin:0rem;
+        text-transform: capitalize;
+    }
+}
+
+/* ! End of Footer Section */
