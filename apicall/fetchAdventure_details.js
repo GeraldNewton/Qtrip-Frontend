@@ -1,3 +1,5 @@
+import { actualURL,baseURL } from "../config.js"
+
 const fetchAdventure_details=async(adventure_name)=>{
     try{
         const token=localStorage.getItem("token");
@@ -5,7 +7,7 @@ const fetchAdventure_details=async(adventure_name)=>{
           alert("Cannot get data due to faulty Login, You can Login again to remove this error")
           return
         }
-        const res=await axios.get(`http://localhost:3000/get/adventure-details?name=${adventure_name}`,{
+        const res=await axios.get(`${actualURL}/get/adventure-details?name=${adventure_name}`,{
             headers:{Authorization:`Bearer ${token}`}
         })
         return res;

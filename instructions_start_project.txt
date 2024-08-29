@@ -1,0 +1,9 @@
+for local Run:-
+use baseURL in place of actualURL in files of api call
+
+for deployment run:-
+use actualURL in place of baseURL in files of api call
+
+REMEMBER IF YOU MAKE CHANGES IN FILES TO MAKE IT RUN ON LOCAL LAPTOP 
+AND THEN COMMIT IT TO GITHUB IT WILL CAUSE THE DEPLOYMENT ON VERCEL TO 
+ERROR AS IT WON'T UNDERSTAND BASE_URL

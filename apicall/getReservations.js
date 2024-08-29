@@ -1,3 +1,5 @@
+import { actualURL,baseURL } from "../config.js"
+
 const get_reservation = async () => {
     const token = localStorage.getItem("token")
     const Username=localStorage.getItem("Username")
@@ -8,7 +10,7 @@ const get_reservation = async () => {
     }
     try{
       const res = await axios.get(
-        `http://localhost:3000/get/reservations?Username=${Username}`,
+        `${actualURL}/get/reservations?Username=${Username}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

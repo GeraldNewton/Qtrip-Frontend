@@ -1,6 +1,8 @@
+import { baseURL,actualURL } from "../config.js";
+
 const makeLogin = async (Username, password) => {
     try {
-      const res = await axios.get("http://localhost:3000/login", {
+      const res = await axios.get(`${actualURL}/login`, {
         headers: {
           Username: Username,
           password: password,

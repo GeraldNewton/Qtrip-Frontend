@@ -1,3 +1,5 @@
+import { actualURL,baseURL } from "../config.js"
+
 const delete_reservation=async(id)=>{
   const token=localStorage.getItem("token")
   if(!token){
@@ -6,7 +8,7 @@ const delete_reservation=async(id)=>{
   }
   try{
     const res = await axios.delete(
-        `http://localhost:3000/reservation`,
+        `${actualURL}/reservation`,
         {
           headers: { 
             Authorization: `Bearer ${token}`,

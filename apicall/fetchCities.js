@@ -1,6 +1,8 @@
+import { actualURL,baseURL } from "../config.js"
+
 const fetchCities = async (token) => {
     try {
-      const cities_data = await axios.get("http://localhost:3000/get/cities", {
+      const cities_data = await axios.get(`${actualURL}/get/cities`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return cities_data;

@@ -1,3 +1,5 @@
+import { baseURL,actualURL } from "../config.js";
+
 const make_reservation = async (book_obj) => {
   const Username = localStorage.getItem("Username");
   const token = localStorage.getItem("token");
@@ -9,7 +11,7 @@ const make_reservation = async (book_obj) => {
   }
   try {
     const res = await axios.post(
-      "http://localhost:3000/reservations",
+      `${actualURL}/reservations`,
       {
         Username: Username,
         date_of_visit: book_obj.date,

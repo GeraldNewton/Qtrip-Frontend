@@ -1,3 +1,5 @@
+import { actualURL,baseURL } from "../config.js"
+
 const getAdventures = async (city) => {
   try {
     const token=localStorage.getItem("token");
@@ -6,7 +8,7 @@ const getAdventures = async (city) => {
       return
     }
     const res = await axios.get(
-      `http://localhost:3000/get/adventures?city=${city}`,
+      `${actualURL}/get/adventures?city=${city}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
