@@ -41,7 +41,7 @@ const handleLogin = async (e) => {
     localStorage.setItem("Username", Username);
     if (res) {
       localStorage.setItem("token", res.data);
-      window.location.pathname = "/landing_page";
+      window.location.pathname = "/landing_page/index.html";
     }
   }
 };
