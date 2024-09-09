@@ -1,7 +1,9 @@
+import { baseURL,actualURL } from "../config.js";
+
 const signUp = async (Username, password) => {
   try {
     const res = await axios.post(
-      "http://localhost:3000/signup",
+      `${actualURL}/signup`,
       {},
       {
         headers: {
