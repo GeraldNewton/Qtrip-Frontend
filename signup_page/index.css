@@ -8,6 +8,11 @@
     font-size: 62.5%;
     background-color: bisque;
 }
+@media (max-width:450px){
+    :root{
+        font-size: 6px;
+    }
+}
 body{
     display:flex;
     align-items: center;

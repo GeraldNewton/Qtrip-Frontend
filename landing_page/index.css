@@ -15,6 +15,11 @@
     --navlinks_toggler_color:antiquewhite;
     --navbar_color:aliceblue;
 }
+@media (max-width:450px){
+    :root{
+        font-size: 6px;
+    }
+}
 
 /* ! Start of navbar */
 
@@ -138,6 +143,11 @@
     background-position: 50% 50%;
     background-image: url("../resources/Heroimg.jpg");
     position:relative;
+}
+@media (max-width:450px){
+    .herocontainer{
+        height:50vh;
+    }
 }
 .container{
     box-shadow: 0px -25px 20px -20px rgba(248,231,28,1),

@@ -15,6 +15,11 @@
   --navlinks_toggler_color:antiquewhite;
   --navbar_color:aliceblue;
 }
+@media (max-width:450px){
+  :root{
+      font-size: 6px;
+  }
+}
 
 /* ! Start of navbar */
 
@@ -170,6 +175,7 @@
 }
 .category_section {
   margin: 0;
+  margin-right: 1.5rem;
 
   & .categories {
     width: 100%;

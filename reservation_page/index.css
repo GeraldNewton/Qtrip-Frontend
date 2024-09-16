@@ -11,6 +11,11 @@
   --navlinks_toggler_color:antiquewhite;
   --navbar_color:aliceblue;
 }
+@media (max-width:450px){
+  :root{
+      font-size: 6px;
+  }
+}
 
 /* ! Start of navbar */
 
