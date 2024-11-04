@@ -33,5 +33,4 @@ const makeLogin = async (Username, password) => {
     }
   };
 
-// module.exports={makeLogin}
 export {makeLogin};

@@ -44,6 +44,8 @@ const handleSignUp = async (e) => {
     if (validateCred(Username, password, re_password)) {
     const res = await signUp(Username, password);
     if (res.data) {
+      localStorage.setItem("username",res.data.Username)
+      localStorage.setItem("password",res.data.password)
       alert("Sign Up successfull")
       location.pathname="../index.html"
     }

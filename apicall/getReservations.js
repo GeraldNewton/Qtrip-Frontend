@@ -2,7 +2,7 @@ import { actualURL,baseURL } from "../config.js"
 
 const get_reservation = async () => {
     const token = localStorage.getItem("token")
-    const Username=localStorage.getItem("Username")
+    const Username=localStorage.getItem("username")
     if(!token || !Username)
     {
         alert("Cannot load Reservations due to Faulty Login, Login again to prevent this issue")

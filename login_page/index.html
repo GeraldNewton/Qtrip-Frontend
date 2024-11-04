@@ -11,8 +11,8 @@
   </head>
   <body>
     <div class="login">
-      <div class="head">Sign Up</div>
-      <form onsubmit="handleSignUp(event)">
+      <div class="head">Login</div>
+      <form onsubmit="handleLogin(event)">
         <div class="input_element">
           <label for="username">Username:</label>
           <div class="input" onclick="focusInput(this)">
@@ -27,22 +27,10 @@
             <div class="placeholder">Password</div>
           </div>
         </div>
-        <div class="input_element">
-          <label for="re_password">repeat-Password:</label>
-          <div class="input" onclick="focusInput(this)">
-            <input
-              type="password"
-              name="re_password"
-              id="re_password"
-              required
-            />
-            <div class="placeholder">Password</div>
-          </div>
-        </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Login</button>
       </form>
       <div class="support">
-        Already have an Account, <a href="../login_page/index.html">Login now</a> Now!
+        Don't have an Account, <a href="../signup_page/index.html">Sign up</a> Now!
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

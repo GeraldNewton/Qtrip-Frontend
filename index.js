@@ -1,58 +1,136 @@
-import { makeLogin } from "./apicall/makeLogin.js";
+import fetchCities from "../apicall/fetchCities.js";
 
-// ! Start of Focus input Handler
+// ! Start of Navbar Setter
 
-//  ? "this" sent by the function call received below as e contains the .input element which can be used to focus the control on the input tag when .input is clicked
+const setNavbar=(login)=>{
+  let link;
+  if(login)
+  link=`<a href="../reservation_page/index.html">reservations</a>`
+  else
+  link=`<a href="./login_page/index.html">Login</a>`
+    
+  let navbar=document.querySelector(".navbar");
+  navbar.innerHTML=navbar.innerHTML+`
+    <div class="navlinks">
+      <ul>
+        <li>${link}</li>
+        ${login?`<li class="logout">Logout</li>`:``}
+      </ul>
+    </div>
+    <i class="fa-solid fa-bars navicon" onclick="openToggle()"></i> 
+  `
+  
+  let header=document.querySelector("header");
+  header.innerHTML=header.innerHTML+`
+    <div class="navlinks_toggler">
+      <ul>
+        <li>${link}</li>
+        <hr />
+        ${login?`<li class="logout">Logout</li>
+                 <hr />`:``}
+        <li onclick="closeToggle()"><i class="fa-solid fa-xmark"></i></li>
+      </ul>
+    </div>
+  `
+  
+  const arr=Array.from(document.getElementsByClassName("logout"))
+  arr.forEach((ele)=>ele.addEventListener("click",()=>{localStorage.clear();location.reload();console.log("i run")}))
+}
 
-const focusInput = (e) => e.children[0].focus();
+// ! End of Navbar Setter
 
-// ! End of Focus input Handler
 
-// ! Start of Form Validation
 
-// ? Checks the input values provided by user
+// ! Start of Navbar handling
 
-const validateCred = (Username, password) => {
-  const regex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+// ? following 3 functions handles the navlinks toggler which comes into view when screen width decreases
 
-  if (!regex.test(password)) {
-    alert(
-      "password should fullfill the following requirements of having atleast:one lowercase letter,one uppercase letter,one digit,one special character from the set `@$!%*?` & and should be at least 8 characters long"
-    );
-    return false;
-  }
-  return true;
+const closeToggle = () => {
+  document.getElementsByClassName("navlinks_toggler")[0].style.height = "0rem";
+  document.getElementsByClassName("navicon")[0].style.display = "block";
 };
 
-// ! End of Form Validation
-
-// ! Start of Form Handler
-
-// ? handles the input values provided by user
-
-const handleLogin = async (e) => {
-  e.preventDefault();
-  const Username = e.target.elements["username"].value,
-    password = e.target.elements["password"].value;
-
-  if (validateCred(Username, password)) {
-    const res = await makeLogin(Username, password);
-    localStorage.setItem("Username", Username);
-    if (res) {
-      localStorage.setItem("token", res.data);
-      window.location.pathname = "/landing_page/index.html";
-    }
-  }
+const openToggle = () => {
+  let ht;
+  if(localStorage.getItem("username"))
+  ht="21rem";
+  else
+  ht="15rem";
+  document.getElementsByClassName("navlinks_toggler")[0].style.height = `${ht}`;
+  document.getElementsByClassName("navicon")[0].style.display = "none";
 };
 
-// ! End of Form Handler
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 500) {
+    document.getElementsByClassName("navlinks_toggler")[0].style.height = "";
+    document.getElementsByClassName("navicon")[0].style.display = "";
+  }
+});
 
-window.handleLogin = handleLogin;
-window.focusInput = focusInput;
+// ! End of Navbar handling
 
-// ! module imported as (type=module) in index.html so that this js file can use import function to import makeLogin
-// ! But because of this script becomes LocalScoped i.e. Variables and functions defined in this script/module are scoped to this script/module and do not
-// ! pollute the global scope unless explicitly assigned to window.
-// ! hence inorder to make the functions handleLogin & focusInput globally scoped fancy way of saying : accessible to the html file and its elements so
-// ! that form could make onsubmit work and input_element could make focus work we assign them to the window object now they are accessed globally
+// ! Start of Adventure visit function
+
+const visitAdventure=(city)=>{
+  const username = localStorage.getItem("username");
+  if(username)
+  window.location.href=`http://${location.host}/city_page/index.html?city=${city}`
+  else
+  alert("Login first to view Adventures in a city")
+}
+
+// ! End of Adventure visit function
+
+
+window.openToggle=openToggle;
+window.closeToggle=closeToggle;
+window.visitAdventure=visitAdventure;
+
+
+// ! Start of City Card handling
+
+// ? takes an array of cities objects and creates a City Card
+
+const setCityCards = (cities_data) => {
+  const grid = document.getElementsByClassName("grid")[0];
+  cities_data.data.forEach((val) => {
+    const grid_item_div = document.createElement("div");
+    grid_item_div.classList.add("grid_item");
+    grid_item_div.innerHTML = `
+            <div class="city_card">
+                <div class="back_card">
+                    <div><button>View Adventures</a></div>
+                </div>
+                <div class="front_card">
+                   <img src=${val.image} class="img">
+                   <div class="city_places">${val.description}</div> 
+                   <div class="city_name">${val.city}</div>
+                   <div class="border"></div>
+                </div>
+           </div>`;
+    grid_item_div.querySelector(".back_card button").addEventListener("click",()=>visitAdventure(val.city))
+    grid.appendChild(grid_item_div);
+  });
+};
+
+// ! End of City Card handling
+
+// ! Start of Controller function
+
+const run = async () => {
+  const username = localStorage.getItem("username");
+  if (username) {
+    setNavbar(true);
+  } else {
+    setNavbar(false);
+  }
+  const cities_data = await fetchCities();
+  if (cities_data) setCityCards(cities_data);
+};
+
+// ! End of Controller function
+
+// ! IIFE
+(async function () {
+  run();
+})();

@@ -1,0 +1,152 @@
+*{
+    padding: 0;
+    margin: 0px auto;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+:root{
+    font-size: 62.5%;
+    background-color: bisque;
+}
+@media (max-width:450px){
+    :root{
+        font-size: 6px;
+    }
+}
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+
+.login{
+    width:40%;
+    background-color: aliceblue;
+    border-radius: 1rem;
+    color:blue;
+    padding: 3rem 0rem;
+
+    & .head{
+        font-size: 4rem;
+        font-weight: 600;
+        color: burlywood;
+        text-align: center;
+    }
+
+    & form{
+        width:100%;
+        height:100%;
+        padding:5% 10%;
+        text-align: center;
+
+        & .input_element{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height:3rem;
+
+            & *{
+                margin:0;
+            }
+
+            & label{
+                font-size: 2rem;  
+                text-align: left;
+                cursor: pointer;  
+            }
+
+            & .input{
+                width:40%;
+                height:100%;
+                position:relative;
+                font-size: 1.5rem;
+                
+                & input{
+                    width:100%;
+                    height:100%;
+                    border-radius: 0.5rem;
+                    outline: none;
+                    font-size: inherit;
+                    padding:0.5rem;
+                    background-color: transparent;
+                    transition:all 0.2s;
+                    border:0.2rem solid blue;
+                    color:burlywood
+                }
+
+                & .placeholder{
+                    padding: 0px;
+                    position:absolute;
+                    top:18%;
+                    left:5%;
+                    font-size: inherit;
+                    transition:all 0.2s;
+                    color:rgb(168, 168, 206)
+                }
+                & input:focus + .placeholder,input:valid + .placeholder{
+                    top:-25%;
+                    left:4%;
+                    font-size: 1.3rem;
+                    background-color: aliceblue;
+                    color:pink;
+                }
+                & input:focus,input:valid{
+                    border: 0.2rem solid pink;
+                }
+            }
+        }
+
+        & button{
+            margin-top: 3rem;
+            width:8rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            background-color: bisque;
+            border: 0.26rem solid pink;
+            color:grey;
+            font-size: 1.8rem;
+            color: blue;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgb(234, 205, 170);
+            }
+
+            &:active{
+                background-color: rgb(167, 142, 112);
+                color: white;
+            }
+        }
+
+        & .input_element:nth-child(2){
+            margin: 2rem 0rem;
+        }
+
+    }
+
+    & .support{
+        text-align: center;
+        color: darkseagreen;
+        font-size: 2rem;
+
+        & a{
+            text-decoration: none;
+            color:burlywood;
+
+            &:hover{
+                color: rgb(163, 133, 94);
+            }
+
+            &:active{
+                color: rgb(85, 204, 222);
+            }
+        }
+    }
+}
+@media (max-width:750px){
+    .login{
+        width:80%;
+    }
+}

@@ -1,7 +1,7 @@
 import { baseURL,actualURL } from "../config.js";
 
 const make_reservation = async (book_obj) => {
-  const Username = localStorage.getItem("Username");
+  const Username = localStorage.getItem("username");
   const token = localStorage.getItem("token");
   if (!Username || !token) {
     alert(
@@ -52,22 +52,3 @@ const make_reservation = async (book_obj) => {
 };
 
 export default make_reservation;
-
-// "Username":"Arpit",
-// "date_of_visit":"2024-08-05",
-// "person":5,
-// "adventureName":"Tifwales Ferry",
-// "price":5623,
-// "date_of_resevation":"2024-07-04"
-
-//   if (e.name && e.name == "ValidationError") {
-//     const obj = {
-//       error: "Valdiation Falied",
-//       message: e.message.slice(31, e.message.length), //! understood by looking at the e.message
-//     };
-//     res.status(http.BAD_REQUEST).json(obj);
-//   } else
-//     res
-//       .status(http.INTERNAL_SERVER_ERROR)
-//       .send({ error: "Not Available", message: "internal server error" });
-//
